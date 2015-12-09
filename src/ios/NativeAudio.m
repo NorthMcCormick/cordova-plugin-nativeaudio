@@ -44,7 +44,10 @@ NSString* INFO_VOLUME_CHANGED = @"(NATIVE AUDIO) Volume changed.";
     }
 
     [session setActive: YES error: nil];
-    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    //[session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [session setCategory:AVAudioSessionCategoryAmbient
+             withOptions:AVAudioSessionCategoryOptionMixWithOthers
+                   error:&setCategoryError];
 }
 
 - (void) parseOptions:(NSDictionary*) options
